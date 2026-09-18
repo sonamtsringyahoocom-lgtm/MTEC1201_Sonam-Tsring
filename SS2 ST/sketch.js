@@ -1,5 +1,5 @@
 let size = 60
-
+let big = 500
 function setup() {
   createCanvas(500, 500);
 
@@ -17,7 +17,8 @@ function setup() {
 // height.
 function mousePressed() {
   if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
-    resizeCanvas(500, 650);
+    resizeCanvas(big, big);
+big = big + 50;
     background(200);
     text(height, 500, 300);
   }
