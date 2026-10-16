@@ -55,21 +55,24 @@ function draw() {
   image(img1, d, Car1, 100, 100);
  image(img2, W, L, 50, 50);
 
-  if (L+50>Car1 && L<Car1+100 && W<d+100 && W+50>d){
+  if (L+50>Car1 && L<Car1+100 && W<d+100 && W+50>d)
+    { Count = Count+1;};
+ if (L+50>Car1 && L<Car1+100 && W<d+100 && W+50>d){
     L=850, W=500 
   }
-   if (L+50>Car1 && L<Car1+100 && W<d+100 && W+50>d)
+
+   if (L+50>Car2 && L<Car2+100 && W<d+100 && W+50>d)
     { Count = Count+1;};
   if (L+50>Car2 && L<Car2+100 && W<d+100 && W+50>d){
     L=850, W=500 
   }
-  if (L+50>Car2 && L<Car2+100 && W<d+100 && W+50>d)
+
+  if (L+50>Car3 && L<Car3+100 && W<d+100 && W+50>d)
     { Count = Count+1;};
   if (L+50>Car3 && L<Car3+100 && W<d+100 && W+50>d){
    L=850, W=500 
   }
-  if (L+50>Car3 && L<Car3+100 && W<d+100 && W+50>d)
-    { Count = Count+1;};
+
   text("DEATHS: " + Count, 100, 50);
 }
 
