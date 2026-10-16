@@ -1,7 +1,35 @@
+let img1;
+let img2;
+let W = 500;
+let L = 550;
+let YLW = 200;
+let X = 200;
+let Y = 200;
+
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(1000,600);
+  background(100)
+}
+function draw() {
+  background(1000)
+   
+   let s = millis() / 1000;
+  // Calculate an x-coordinate.
+  let d = 450 * sin(s) + 450;
+  image(img1, d, 300, 100, 100);
+ image(img2, W, L, 50, 50);
+ rect(X,Y,100,100,YLW)
 }
 
-function draw() {
-  background(220);
+function preload(){
+img1 = loadImage('Images/Car.png')
+img2 = loadImage('Images/Snake.png')
+}
+function keyisPressed (){
+  if (key === 'U'){
+    L-10;}
+    else if (key === 'R')
+      {W+10}
+    if (key === 'L')
+      {W-10}
 }

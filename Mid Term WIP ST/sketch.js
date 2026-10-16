@@ -12,7 +12,12 @@ function draw() {
    let s = millis() / 1000;
   // Calculate an x-coordinate.
   let d = 450 * sin(s) + 450;
-  image(img1, d, 300, 100, 100);
+  rect(0, 125, 1000, 100);
+  rect(0, 275, 1000, 100)
+  rect(0, 425, 1000, 100)
+  image(img1, d, 125, 100, 100);
+  image(img1, d, 275, 100, 100);
+  image(img1, d, 425, 100, 100);
  image(img2, W, L, 50, 50);
 }
 
