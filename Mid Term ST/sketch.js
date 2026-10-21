@@ -6,25 +6,14 @@ let Car1= 625;
 let Car2= 425;
 let Car3= 225;
 let Count= 0;
+let gameState = "START";
+let R = 1000;
+let P = 950;
+let D = 500;
+let E = 500;
 function setup() {
   createCanvas(1000,900);
   background(100)
-}
-function mousePressed() {
-  currentScene++;
-  if(currentScene >= numScenes) {
-    currentScene = 0;
-  }
-
-}
-
-function drawScene0() {
-text('Snake Crosser', 500,200,200)
-text('Click To Start Game',500, 400, 100 )
-}
-
-function drawScene1() {
-text('You Win',)
 }
 
 
@@ -54,6 +43,7 @@ function draw() {
   image(img1, d, Car2, 100, 100);
   image(img1, d, Car1, 100, 100);
  image(img2, W, L, 50, 50);
+ text("DEATHS: " + Count, 100, 50);
 
   if (L+50>Car1 && L<Car1+100 && W<d+100 && W+50>d)
     { Count = Count+1;};
@@ -73,8 +63,42 @@ function draw() {
    L=850, W=500 
   }
 
-  text("DEATHS: " + Count, 100, 50);
+  if (L < 100)
+    {
+      fill(173,216,230)
+      rect(1,1,1000,900)
+      image(img2, d , Car1, 50,50)
+      image(img2, d), 150, 50 ,50
+    }
+if (L < 100) 
+  {
+    fill(255,204,0)
+    textSize(50)
+    text("You Win" , 400, 300);
+    fill(100,100,100)
+    textSize(20)
+    text("Total Deaths: " + Count, 425, 360)
+    if (Count >= 5){
+    fill(100,0,0)
+    textSize(50)
+    text("Try Dodging Better", 350, 560)
+    }
+    else if (Count >= 1)
+      {
+    fill(175,100,220)
+    textSize(50)
+    text("Good Job Weaving", 350, 560)
+    }
+    else if (Count < 1)
+      {
+    fill(255,204,0)
+    textSize(50)
+    text("Perfect", 420, 560)
+    }
+  }
+  
 }
+
 
 function preload(){
 img1 = loadImage('Image/Car.png')
