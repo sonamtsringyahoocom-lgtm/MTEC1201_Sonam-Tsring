@@ -2,22 +2,18 @@ let img1;
 let img2;
 let W = 500;
 let L = 850;
-let Car1= 625;
-let Car2= 425;
-let Car3= 225;
-let Count= 0;
-let gameState = "START";
-let R = 1000;
-let P = 950;
-let D = 500;
-let E = 500;
+let Car1 = 625;
+let Car2 = 425;
+let Car3 = 225;
+let Count = 0;
+var gameState = "start";// Options: "start" or "game"
+
 function setup() {
   createCanvas(1000,900);
   background(100)
 }
 
-
-function draw() {
+function runMyGame() {
    let s = millis() / 1000;
   // Calculate an x-coordinate.
   let d = 450 * sin(s) + 450;
@@ -95,11 +91,8 @@ if (L < 100)
     textSize(50)
     text("Perfect", 420, 560)
     }
-  }
-  
 }
-
-
+}
 function preload(){
 img1 = loadImage('Image/Car.png')
 
@@ -115,4 +108,23 @@ function keyPressed() {print('key',key)
     if (key === "a")
       {W= W-15}
     else if (key === "s"){L=L+15;}
+}
+function drawStartScreen() {
+  background("lightblue"); 
+  textSize(50);
+  fill(30,100,0)
+  text("Snake Crosser", 400,350);
+  fill(255,204,0)
+  textSize(50);
+  text("Press p to Start", 390,500);
+  if (keyIsPressed && key === 'p') {
+    gameState = "game";
+  }
+}
+function draw() {
+  if (gameState === "start") {
+    drawStartScreen();
+  } else if (gameState === "game") {
+    runMyGame();
+  }
 }
